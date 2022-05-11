@@ -1,4 +1,5 @@
 #include "monty.h"
+int val;
 /**
  * _swap - swap two elements of stack
  * @top: top node
@@ -41,4 +42,48 @@ void _nop(stack_t **top, unsigned int line)
 {
 	(void) top;
 	(void) line;
+}
+/**
+ * open_and_read - ppen and read the file
+ * @argv: argv
+ */
+void open_and_read(char **argv)
+{
+	void (*p_func)(stack_t **, unsigned int);
+	FILE *fp;
+	char *buf = NULL, *token = NULL, command[1024];
+	size_t len = 0;
+	ssize_t line_size;
+	unsigned int line_counter = 1;
+	stack_t *top = NULL;
+
+	fp = fopen(argv[1], "r");
+	if (fp == NULL)
+		printf("error");
+	while((line_size = getline(&buf, &len, fp)) != -1)
+	{
+		token = strtok(buf, "\n\t\r ");
+		if (*token == '\0')
+			continue;
+		strcpy(command, token);
+		if (strcmp(token, "push") == 0)
+		{
+			token = strtok(NULL, "\n\t\r ");
+			if (token == NULL)
+				printf("error");
+			val = atoi(token);
+			p_func = get_op_code(command, line_counter);
+			p_func(&top, line_counter);
+		}
+		else
+		{
+			p_func = get_op_code(token, line_counter);
+			p_func(&top, line_counter);
+		}
+		line_counter++;
+	}
+	fclose(fp);
+	if (buf != NULL)
+		free(buf);
+	_free(top);
 }

@@ -52,4 +52,6 @@ void _rotr(stack_t **top, unsigned int line);
 void _nop(stack_t **top, unsigned int line);
 void _pchar(stack_t **top, unsigned int line);
 void _pstr(stack_t **top, unsigned int line);
+void open_and_read(char **argv);
+void (*get_op_code(char *token, unsigned int line))(stack_t **, unsigned int);
 #endif
