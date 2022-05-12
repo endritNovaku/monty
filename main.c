@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 {
 
 	if (argc != 2)
-		perror("error\n");
+		usage_error();
 	open_and_read(argv);
 	return(0);
 }

@@ -59,7 +59,7 @@ void open_and_read(char **argv)
 
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
-		printf("error");
+		file_error(argv);
 	while((line_size = getline(&buf, &len, fp)) != -1)
 	{
 		token = strtok(buf, "\n\t\r ");

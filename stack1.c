@@ -44,7 +44,7 @@ void _pop(stack_t **top, __attribute__((unused)) unsigned int line)
 	stack_t *tmp = *top;
 
 	if (*top == NULL)
-		printf("error\n");
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line);
 
 	tmp = tmp->next;
 	free(*top);
