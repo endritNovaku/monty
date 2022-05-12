@@ -62,7 +62,7 @@ void _push(stack_t **top, __attribute__((unused))unsigned int line)
 
 	if (new_node == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = val;
