@@ -6,11 +6,15 @@
  */
 void _sub(stack_t **top, unsigned int line)
 {
-        int tmp = (*top)->n;
+        stack_t *tmp;
         if (*top == NULL || (*top)->next == NULL)
-                printf("cant add");
+	{
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
 
-        (*top)->next->n -= tmp;
+	tmp = (*top)->next;
+        tmp->n -= (*top)->n;
         _pop(top, line);
 }
 /**
@@ -20,13 +24,15 @@ void _sub(stack_t **top, unsigned int line)
  */
 void _div(stack_t **top, unsigned int line)
 {
-        int tmp = (*top)->n;
+	stack_t *tmp;
         if (*top == NULL || (*top)->next == NULL)
-                printf("cant add");
-	if ((*top)->n == 0)
-		printf("error");
+        {
+                fprintf(stderr, "L%u: can't div, stack too short\n", line);
+                exit(EXIT_FAILURE);
+        }
 
-        (*top)->next->n = (*top)->next->n / tmp;
+        tmp = (*top)->next;
+        tmp->n /= (*top)->n;
         _pop(top, line);
 }
 /**
