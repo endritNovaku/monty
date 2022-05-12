@@ -29,7 +29,7 @@ void _pstr(stack_t **top, __attribute__((unused))unsigned int line)
 		return;
 	}
 	tmp = *top;
-	while (*top != NULL)
+	while (*tmp != NULL)
 	{
 		if (tmp->n <= 0 || tmp->n > 127)
 			break;
