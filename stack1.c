@@ -19,7 +19,7 @@ void _pall(stack_t **top, __attribute__((unused))unsigned int line)
  * @top: top node
  * @line: value
  */
-void _pint(stack_t **top, __attribute__((unused))unsigned int line)
+void _pint(stack_t **top, unsigned int line)
 {
 	if (*top != NULL)
 	{
@@ -27,7 +27,8 @@ void _pint(stack_t **top, __attribute__((unused))unsigned int line)
 	}
 	else
 	{
-		printf("error\n");
+		fprintf(stderr, "L%u: can't, stack empty\n", line);
+		exit(EXIT_FAILURE);
 	}
 }
 /**

@@ -10,6 +10,10 @@ void (*get_op_code(char *token, __attribute__((unused))unsigned int line))(stack
 		{"pint",_pint},
 		{"swap", _swap},
 		{"add", _add},
+		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 
