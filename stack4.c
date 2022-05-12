@@ -21,6 +21,7 @@ void _pchar(stack_t **top, unsigned int line)
 
 void _pstr(stack_t **top, __attribute__((unused))unsigned int line)
 {
+	int s;
 	stack_t *tmp;
 
 	if (*top == NULL)
@@ -31,9 +32,10 @@ void _pstr(stack_t **top, __attribute__((unused))unsigned int line)
 	tmp = *top;
 	while (tmp != NULL)
 	{
-		if (tmp->n <= 0 || tmp->n > 127)
+		s = tmp->n;
+		if (s <= 0 || s > 127)
 			break;
-		putchar(tmp->n);
+		putchar(s);
 		tmp = tmp->next;
 	}
 	putchar('\n');
