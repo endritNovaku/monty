@@ -40,3 +40,27 @@ void _pstr(stack_t **top, __attribute__((unused)) unsigned int line)
 	}
 	putchar('\n');
 }
+
+void _rotl(stack_t **top, __attribute__((unused)) unsigned int line)
+{
+	stack_t *tmp;
+	stack_t *head;
+	stack_t *new_head;
+
+	if (*top == NULL || (*top != NULL && (*top)->next == NULL))
+			return;
+	tmp = *top;
+	head = *top;
+
+	while(tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+
+	new_head = (*top)->next;
+	head->next = NULL;
+	head->prev = tmp;
+	tmp->next = head;
+	new_head->prev = NULL;
+	*top = new_head;
+}
