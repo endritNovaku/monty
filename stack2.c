@@ -26,7 +26,7 @@ void _swap(stack_t **top, __attribute__((unused))unsigned int line)
  */
 void _add(stack_t **top, unsigned int line)
 {
-	stack *tmp;
+	stack_t *tmp;
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
