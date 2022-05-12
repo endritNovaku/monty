@@ -26,14 +26,16 @@ void _swap(stack_t **top, __attribute__((unused))unsigned int line)
  */
 void _add(stack_t **top, unsigned int line)
 {
-	int tmp = (*top)->n;
+	stack *tmp = *top;
+
 	if (*top == NULL || (*top)->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 
-	(*top)->next->n += tmp;
+	tmp = (*top)->next;
+	tmp->n += (*top)->n;
 	_pop(top, line);
 }
 
