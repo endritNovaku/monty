@@ -60,4 +60,5 @@ void usage_error(void);
 void _pchar(stack_t **top, unsigned int line);
 void _pstr(stack_t **top, __attribute__((unused)) unsigned int line);
 void _rotl(stack_t **top, __attribute__((unused)) unsigned int line);
+void _rotr(stack_t **top, __attribute__((unused)) unsigned int line);
 #endif

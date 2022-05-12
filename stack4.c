@@ -64,3 +64,20 @@ void _rotl(stack_t **top, __attribute__((unused)) unsigned int line)
 	new_head->prev = NULL;
 	*top = new_head;
 }
+
+void _rotr(stack_t **top, __attribute__((unused)) unsigned int line)
+{
+	stack_t *tmp;
+	
+	if (*top == NULL || (*top != NULL && (*top)->next == NULL))
+			return;
+	tmp = *top;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+
+	tmp->prev->next = NULL;
+	tmp->prev = NULL;
+	tmp->next = *top;
+	(*top)->prev = tmp;
+	*top = tmp;
+}
