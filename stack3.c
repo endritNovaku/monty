@@ -48,11 +48,15 @@ void _div(stack_t **top, unsigned int line)
  */
 void _mul(stack_t **top, unsigned int line)
 {
-        int tmp = (*top)->n;
+	stack_t *tmp;
         if (*top == NULL || (*top)->next == NULL)
-                printf("error");
+        {
+                fprintf(stderr, "L%u: can't mul, stack too short\n", line);
+                exit(EXIT_FAILURE);
+        }
 
-        (*top)->next->n *= tmp;
+        tmp = (*top)->next;
+        tmp->n -= (*top)->n;
         _pop(top, line);
 }
 /**
@@ -62,12 +66,20 @@ void _mul(stack_t **top, unsigned int line)
  */
 void _mod(stack_t **top, unsigned int line)
 {
-        int tmp = (*top)->n;
-        if (*top == NULL || (*top)->next == NULL)
-                printf("cant add");
-	if ((*top)->n == 0)
-		printf("error");
+        stack_t *tmp;
 
-        (*top)->next->n = (*top)->next->n % tmp;
+        if (*top == NULL || (*top)->next == NULL)
+        {
+                fprintf(stderr, "L%u: can't mod, stack too short\n", line);
+                exit(EXIT_FAILURE);
+        }
+        if ((*top)->n == 0)
+        {
+                fprintf(stderr, "L%u: division by zero\n", line);
+                exit(EXIT_FAILURE);
+        }
+
+        tmp = (*top)->next;
+        tmp->n /= (*top)->n;
         _pop(top, line);
 }
