@@ -72,6 +72,8 @@ void open_and_read(char **argv)
 		if (*token == '\0')
 			continue;
 		strcpy(command, token);
+		if (is_comm(token, line_counter) == 1)
+			continue;
 		if (strcmp(token, "push") == 0)
 		{
 			token = strtok(NULL, "\n\t\r ");
