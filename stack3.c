@@ -34,6 +34,7 @@ void _div(stack_t **top, unsigned int line)
 	if ((*top)->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line);
+		exit(EXIT_FAILURE);
 	}
 
         tmp = (*top)->next;
