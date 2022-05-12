@@ -21,17 +21,20 @@ void _pchar(stack_t **top, unsigned int line)
 
 void _pstr(stack_t **top, __attribute__((unused))unsigned int line)
 {
+	stack_t *tmp;
+
 	if (*top == NULL)
 	{
 		putchar('\n');
 		return;
 	}
+	tmp = *top;
 	while (*top != NULL)
 	{
-		if ((*top)->n <= 0 || (*top)->n > 127)
+		if (tmp->n <= 0 || tmp->n > 127)
 			break;
-		putchar((*top)->n);
-		*top = (*top)->next;
+		putchar(tmp->n);
+		tmp = tmp->next;
 	}
 	putchar('\n');
 }
