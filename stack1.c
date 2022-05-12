@@ -8,6 +8,7 @@ int val;
 void _pall(stack_t **top, __attribute__((unused))unsigned int line)
 {
 	stack_t *tmp = *top;
+
 	while (tmp != NULL)
 	{
 		printf("%d\n", tmp->n);
@@ -21,6 +22,7 @@ void _pall(stack_t **top, __attribute__((unused))unsigned int line)
  */
 void _pint(stack_t **top, unsigned int line)
 {
+
 	if (*top != NULL)
 	{
 		printf("%i\n", (*top)->n);
@@ -39,7 +41,7 @@ void _pint(stack_t **top, unsigned int line)
 void _pop(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	stack_t *tmp = *top;
-	
+
 	if (*top == NULL)
 		printf("error\n");
 
@@ -56,6 +58,7 @@ void _pop(stack_t **top, __attribute__((unused)) unsigned int line)
 void _push(stack_t **top, __attribute__((unused))unsigned int line)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
+
 	if (new_node == NULL)
 		printf("Error\n");
 	new_node->n = val;
@@ -74,9 +77,8 @@ void _push(stack_t **top, __attribute__((unused))unsigned int line)
 
 }
 /**
- * _free: free the linked list
+ * _free - free the linked list
  * @top: top node
- * @line: value
  */
 void _free(stack_t *top)
 {
