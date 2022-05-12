@@ -25,11 +25,16 @@ void _sub(stack_t **top, unsigned int line)
 void _div(stack_t **top, unsigned int line)
 {
 	stack_t *tmp;
+
         if (*top == NULL || (*top)->next == NULL)
         {
                 fprintf(stderr, "L%u: can't div, stack too short\n", line);
                 exit(EXIT_FAILURE);
         }
+	if ((*top)->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line);
+	}
 
         tmp = (*top)->next;
         tmp->n /= (*top)->n;
