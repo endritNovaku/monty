@@ -56,7 +56,7 @@ void _mul(stack_t **top, unsigned int line)
         }
 
         tmp = (*top)->next;
-        tmp->n -= (*top)->n;
+        tmp->n *= (*top)->n;
         _pop(top, line);
 }
 /**
@@ -80,6 +80,6 @@ void _mod(stack_t **top, unsigned int line)
         }
 
         tmp = (*top)->next;
-        tmp->n /= (*top)->n;
+        tmp->n %= (*top)->n;
         _pop(top, line);
 }
