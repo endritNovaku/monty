@@ -19,7 +19,7 @@ void _pchar(stack_t **top, unsigned int line)
 	putchar('\n');
 }
 
-void _pstr(stack_t **top, __attribute__((unused))unsigned int line)
+void _pstr(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	int s;
 	stack_t *tmp;
