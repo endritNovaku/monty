@@ -11,7 +11,7 @@ void _swap(stack_t **top, __attribute__((unused))unsigned int line)
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
-		printf(stderr, "L%u: can't swap, stack too short\n", line);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 
