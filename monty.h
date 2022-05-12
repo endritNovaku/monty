@@ -57,4 +57,5 @@ void (*get_op_code(char *token, unsigned int line))(stack_t **, unsigned int);
 void invalid_instructions_error(char *token, unsigned int line);
 void file_error(char **argv);
 void usage_error(void);
+void _pchar(stack_t **top, unsigned int line);
 #endif

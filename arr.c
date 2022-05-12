@@ -14,6 +14,7 @@ void (*get_op_code(char *token, __attribute__((unused))unsigned int line))(stack
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"pchar", _pchar},
 		{"nop", _nop},
 		{NULL, NULL}
 	};
