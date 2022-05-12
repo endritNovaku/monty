@@ -24,5 +24,12 @@ void (*get_op_code(char *token, __attribute__((unused))unsigned int line))(stack
 			return (operator[i].f);
 		}
 	}
+	invalid_instructions_error(token, line);
 	return(NULL);
+}
+
+void invalid_instructions_error(char *token, unsigned int line)
+{
+	fprintf(stderr, "L%u: unknown instruction %s\n", line, token);
+	exit(EXIT_FAILURE);
 }
