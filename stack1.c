@@ -23,6 +23,7 @@ void _pall(stack_t **top, __attribute__((unused))unsigned int line)
 void _pint(stack_t **top, unsigned int line)
 {
 
+
 	if (*top != NULL)
 	{
 		printf("%i\n", (*top)->n);
@@ -60,7 +61,10 @@ void _push(stack_t **top, __attribute__((unused))unsigned int line)
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
-		printf("Error\n");
+	{
+		printf("Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	new_node->n = val;
 	new_node->prev = NULL;
 	if (*top == NULL)
